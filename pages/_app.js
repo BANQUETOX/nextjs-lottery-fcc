@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import React from "react"
+import "../styles/globals.css"
+import { MoralisProvider, moralisProvider } from "react-moralis"
+import { NotificationProvider } from "web3uikit"
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+    return (
+        <MoralisProvider initializeOnMount={false}>
+            <NotificationProvider>
+                <Component {...pageProps} />
+            </NotificationProvider>
+        </MoralisProvider>
+    )
 }
 
 export default MyApp
